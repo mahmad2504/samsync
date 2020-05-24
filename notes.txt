@@ -1,0 +1,16 @@
+docker run -tid --name="svm_sync" php:7-apache
+docker exec -it svm_sync bash
+apt-get update
+apt-get install git
+apt-get install vim
+pecl install mongodb
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+vi /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini
+    add line extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/mongodb.so
+	
+git clone https://github.com/mahmad2504/svmsync.git
+
+------------------------------------------------------------
+docker commit d16b10566c19 svm_sync_script (new image name)
+docker save -o svm_sync_script.tar b0da25a09538 (image id)
