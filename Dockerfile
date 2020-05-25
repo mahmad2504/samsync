@@ -7,5 +7,5 @@ RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN git clone https://github.com/mahmad2504/svmsync.git
 RUN cd svmsync && composer install
-RUN echo '20200525' >/dev/null && cd svmsync && git fetch --all && git reset --hard origin/master
+RUN echo '20200526' >/dev/null && cd svmsync && git fetch --all && git reset --hard origin/master
 RUN cd svmsync && php index.php
